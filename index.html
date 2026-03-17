@@ -19,13 +19,10 @@ body{
   display:flex;flex-direction:column;
   touch-action:manipulation;
 }
-
-/* ── Top bar ── */
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
   padding:12px 16px;background:var(--card);
-  border-bottom:3px solid var(--card2);
-  flex-shrink:0;
+  border-bottom:3px solid var(--card2);flex-shrink:0;
 }
 .topbar h1{
   font-family:'Fredoka',sans-serif;font-size:1.15rem;font-weight:700;
@@ -36,15 +33,13 @@ body{
   font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;
   color:var(--sun);display:flex;align-items:center;gap:6px;
 }
-
-/* ── Nav tabs ── */
 .nav{
-  display:flex;gap:6px;padding:10px 12px;
+  display:flex;gap:4px;padding:8px 8px;
   background:var(--card);flex-shrink:0;overflow-x:auto;
 }
 .nav button{
-  flex:1;min-width:0;padding:10px 6px;border:none;border-radius:var(--radius-sm);
-  font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;
+  flex:1;min-width:0;padding:9px 4px;border:none;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;
   background:var(--card2);color:var(--text-dim);cursor:pointer;
   transition:all .2s;white-space:nowrap;
 }
@@ -52,119 +47,59 @@ body{
   background:linear-gradient(135deg,var(--coral),var(--lavender));
   color:#fff;transform:scale(1.03);
 }
-
-/* ── Main scroll area ── */
 .main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px}
 
-/* ── Home screen ── */
-.home-hero{
-  text-align:center;padding:30px 16px 20px;
-}
+/* Home */
+.home-hero{text-align:center;padding:30px 16px 20px}
 .home-hero .emoji-row{font-size:2.2rem;letter-spacing:8px;margin-bottom:12px}
 .home-hero h2{
   font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;
   background:linear-gradient(135deg,var(--sun),var(--mint));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  margin-bottom:8px;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;
 }
 .home-hero p{color:var(--text-dim);font-size:.95rem;line-height:1.5}
-
-.how-to{
-  background:var(--card);border-radius:var(--radius);padding:20px;margin:16px 0;
-}
-.how-to h3{
-  font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--mint);margin-bottom:14px;
-}
+.how-to{background:var(--card);border-radius:var(--radius);padding:20px;margin:16px 0}
+.how-to h3{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--mint);margin-bottom:14px}
 .step-row{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
-.step-num{
-  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;flex-shrink:0;
-}
+.step-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;flex-shrink:0}
 .step-num.s1{background:var(--sky);color:#fff}
 .step-num.s2{background:var(--coral);color:#fff}
 .step-num.s3{background:var(--sun);color:var(--bg)}
 .step-text{font-size:.9rem;line-height:1.4;padding-top:6px}
 .step-text b{color:var(--sun)}
-
-.level-box{
-  background:var(--card2);border-radius:var(--radius-sm);padding:16px;margin-top:14px;
-}
+.level-box{background:var(--card2);border-radius:var(--radius-sm);padding:16px;margin-top:14px}
 .level-box h4{font-family:'Fredoka',sans-serif;color:var(--peach);margin-bottom:10px;font-size:1rem}
 .level-row{font-size:.9rem;margin-bottom:6px;display:flex;gap:6px}
 
-/* ── Flashcards ── */
-.flash-header{
-  text-align:center;margin-bottom:14px;
-}
-.flash-header .count{
-  font-family:'Fredoka',sans-serif;color:var(--text-dim);font-size:.9rem;
-}
-
+/* Flashcards */
+.flash-header{text-align:center;margin-bottom:14px}
+.flash-header .count{font-family:'Fredoka',sans-serif;color:var(--text-dim);font-size:.9rem}
 .flashcard{
-  background:var(--card);border-radius:var(--radius);padding:0;
-  min-height:320px;display:flex;flex-direction:column;
-  position:relative;overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,.3);
-  cursor:pointer;
-  transition:transform .15s;
+  background:var(--card);border-radius:var(--radius);min-height:300px;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.3);cursor:pointer;transition:transform .15s;
 }
 .flashcard:active{transform:scale(.97)}
-
-.flash-top{
-  padding:28px 24px 18px;flex:1;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;
-}
+.flash-top{padding:28px 24px 18px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .flash-emoji{font-size:3rem;margin-bottom:10px}
-.flash-state{
-  font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;
-  margin-bottom:6px;
-}
+.flash-state{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:6px}
 .flash-clue{color:var(--text-dim);font-size:.92rem;line-height:1.4;max-width:300px}
-
-.flash-bottom{
-  padding:20px 24px;text-align:center;
-  border-top:3px dashed rgba(255,255,255,.1);
-  transition:all .3s;
-}
-.flash-bottom.hidden{
-  filter:blur(16px);user-select:none;-webkit-user-select:none;
-}
-.flash-bottom .label{
-  font-size:.75rem;text-transform:uppercase;letter-spacing:2px;
-  color:var(--text-dim);margin-bottom:6px;
-}
-.flash-bottom .capital{
-  font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;
-  color:var(--mint);
-}
-.flash-tap-hint{
-  text-align:center;color:var(--text-dim);font-size:.8rem;margin-top:8px;
-  opacity:.7;
-}
-
-.flash-nav{
-  display:flex;gap:10px;margin-top:16px;
-}
-.flash-nav button{
-  flex:1;padding:14px;border:none;border-radius:var(--radius-sm);
-  font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;
-  cursor:pointer;transition:all .15s;
-}
+.flash-bottom{padding:20px 24px;text-align:center;border-top:3px dashed rgba(255,255,255,.1);transition:all .3s}
+.flash-bottom.hidden{filter:blur(16px);user-select:none;-webkit-user-select:none}
+.flash-bottom .label{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-dim);margin-bottom:6px}
+.flash-bottom .capital{font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;color:var(--mint)}
+.flash-tap-hint{text-align:center;color:var(--text-dim);font-size:.8rem;margin-top:8px;opacity:.7}
+.flash-nav{display:flex;gap:10px;margin-top:16px}
+.flash-nav button{flex:1;padding:14px;border:none;border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all .15s}
 .flash-nav button:active{transform:scale(.95)}
 .btn-prev{background:var(--card2);color:var(--text)}
 .btn-next{background:linear-gradient(135deg,var(--sky),var(--mint));color:#fff}
-.btn-star{
-  background:var(--card2);color:var(--sun);font-size:1.3rem;
-  flex:0 0 56px;
-}
+.btn-star{background:var(--card2);color:var(--sun);font-size:1.3rem;flex:0 0 56px}
 .btn-star.earned{background:var(--sun);color:var(--bg)}
 
-/* ── List view ── */
+/* List */
 .state-list-item{
-  display:flex;align-items:center;gap:14px;
-  background:var(--card);border-radius:var(--radius-sm);
-  padding:14px 16px;margin-bottom:8px;
-  cursor:pointer;transition:transform .1s;
+  display:flex;align-items:center;gap:14px;background:var(--card);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:transform .1s;
 }
 .state-list-item:active{transform:scale(.97)}
 .sli-emoji{font-size:1.6rem;flex-shrink:0}
@@ -175,110 +110,117 @@ body{
 .sli-star{font-size:1.2rem;flex-shrink:0;opacity:.3}
 .sli-star.earned{opacity:1}
 
-/* ── Quiz ── */
-.quiz-progress{
-  display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap;
-}
-.quiz-dot{
-  width:22px;height:22px;border-radius:50%;
-  background:var(--card2);display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;font-weight:700;color:var(--text-dim);
-  transition:all .3s;
-}
+/* Quiz */
+.quiz-progress{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.quiz-dot{width:22px;height:22px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--text-dim);transition:all .3s}
 .quiz-dot.correct{background:var(--mint);color:#fff}
 .quiz-dot.wrong{background:var(--coral);color:#fff}
 .quiz-dot.current{box-shadow:0 0 0 3px var(--sun)}
-
-.quiz-card{
-  background:var(--card);border-radius:var(--radius);padding:28px 20px;
-  text-align:center;margin-bottom:14px;
-}
+.quiz-card{background:var(--card);border-radius:var(--radius);padding:28px 20px;text-align:center;margin-bottom:14px}
 .quiz-emoji{font-size:2.6rem;margin-bottom:8px}
-.quiz-q{
-  font-family:'Fredoka',sans-serif;font-size:1.15rem;font-weight:600;
-  margin-bottom:6px;
-}
+.quiz-q{font-family:'Fredoka',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:6px}
 .quiz-clue{color:var(--text-dim);font-size:.88rem}
-
 .quiz-options{display:flex;flex-direction:column;gap:10px}
 .quiz-opt{
   padding:16px 20px;border:3px solid var(--card2);border-radius:var(--radius-sm);
   background:var(--card);font-family:'Fredoka',sans-serif;font-size:1.05rem;
-  font-weight:600;color:var(--text);cursor:pointer;
-  transition:all .2s;text-align:left;
+  font-weight:600;color:var(--text);cursor:pointer;transition:all .2s;text-align:left;
 }
 .quiz-opt:active{transform:scale(.97)}
 .quiz-opt.correct{border-color:var(--mint);background:rgba(83,216,168,.15);color:var(--mint)}
 .quiz-opt.wrong{border-color:var(--coral);background:rgba(233,69,96,.15);color:var(--coral)}
 .quiz-opt.disabled{pointer-events:none;opacity:.5}
-
-.quiz-feedback{
-  text-align:center;margin-top:14px;padding:16px;
-  border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;
-  font-size:1.1rem;font-weight:600;
-}
+.quiz-feedback{text-align:center;margin-top:14px;padding:16px;border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600}
 .quiz-feedback.yay{background:rgba(83,216,168,.15);color:var(--mint)}
 .quiz-feedback.nay{background:rgba(233,69,96,.15);color:var(--coral)}
+.quiz-next{margin-top:14px;width:100%;padding:16px;border:none;border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--lavender),var(--sky));color:#fff;cursor:pointer}
 
-.quiz-next{
-  margin-top:14px;width:100%;padding:16px;border:none;border-radius:var(--radius-sm);
-  font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;
-  background:linear-gradient(135deg,var(--lavender),var(--sky));
-  color:#fff;cursor:pointer;
-}
-
-/* ── Results ── */
+/* Results */
 .results{text-align:center;padding:30px 16px}
 .results .big-emoji{font-size:4rem;margin-bottom:12px}
-.results h2{
-  font-family:'Fredoka',sans-serif;font-size:1.6rem;
-  margin-bottom:8px;
-}
-.results .score{
-  font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;
-  color:var(--mint);margin-bottom:6px;
-}
+.results h2{font-family:'Fredoka',sans-serif;font-size:1.6rem;margin-bottom:8px}
+.results .score{font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;color:var(--mint);margin-bottom:6px}
 .results .level{color:var(--sun);font-size:1.1rem;margin-bottom:20px}
-.results button{
-  padding:16px 40px;border:none;border-radius:var(--radius-sm);
-  font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;
-  background:linear-gradient(135deg,var(--coral),var(--lavender));
-  color:#fff;cursor:pointer;
-}
+.results button{padding:16px 40px;border:none;border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;background:linear-gradient(135deg,var(--coral),var(--lavender));color:#fff;cursor:pointer}
 
-/* ── Match game ── */
-.match-instr{
-  text-align:center;color:var(--text-dim);font-size:.9rem;margin-bottom:14px;
-}
-.match-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
-}
+/* Match */
+.match-instr{text-align:center;color:var(--text-dim);font-size:.9rem;margin-bottom:14px}
 .match-btn{
   padding:14px 10px;border:3px solid var(--card2);border-radius:var(--radius-sm);
   background:var(--card);text-align:center;cursor:pointer;
-  font-family:'Fredoka',sans-serif;font-size:.92rem;font-weight:600;
-  color:var(--text);transition:all .2s;
+  font-family:'Fredoka',sans-serif;font-size:.92rem;font-weight:600;color:var(--text);transition:all .2s;
 }
 .match-btn:active{transform:scale(.95)}
 .match-btn.selected{border-color:var(--sky);background:rgba(72,178,232,.15);color:var(--sky)}
 .match-btn.matched{border-color:var(--mint);background:rgba(83,216,168,.15);color:var(--mint);pointer-events:none}
 .match-btn.wrong-flash{border-color:var(--coral);background:rgba(233,69,96,.15)}
-.match-score{
-  text-align:center;margin-top:16px;font-family:'Fredoka',sans-serif;
-  font-size:1rem;color:var(--text-dim);
-}
+.match-score{text-align:center;margin-top:16px;font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--text-dim)}
 
-/* ── Confetti ── */
-@keyframes fall{
-  0%{transform:translateY(-10vh) rotate(0deg);opacity:1}
-  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+/* ── MAP ── */
+.map-container{position:relative;width:100%;max-width:720px;margin:0 auto}
+.map-prompt{
+  text-align:center;padding:12px 16px;margin-bottom:10px;
+  background:var(--card);border-radius:var(--radius);
 }
-.confetti-piece{
-  position:fixed;top:0;width:10px;height:10px;border-radius:2px;
-  animation:fall 2.5s ease-in forwards;pointer-events:none;z-index:999;
+.map-prompt .find-label{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;color:var(--text-dim);margin-bottom:4px}
+.map-prompt .find-state{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;color:var(--sun)}
+.map-prompt .find-clue{color:var(--text-dim);font-size:.82rem;margin-top:4px}
+.map-prompt .find-emoji{font-size:1.8rem;margin-bottom:2px}
+.map-progress{
+  display:flex;gap:3px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;
 }
+.map-pip{width:16px;height:16px;border-radius:50%;background:var(--card2)}
+.map-pip.done{background:var(--mint)}
+.map-pip.current{box-shadow:0 0 0 2px var(--sun)}
+.map-mode-toggle{
+  display:flex;gap:6px;margin-bottom:12px;justify-content:center;
+}
+.map-mode-toggle button{
+  padding:8px 16px;border:2px solid var(--card2);border-radius:var(--radius-sm);
+  background:transparent;font-family:'Fredoka',sans-serif;font-size:.85rem;
+  font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .2s;
+}
+.map-mode-toggle button.active{border-color:var(--sky);background:rgba(72,178,232,.15);color:var(--sky)}
 
-/* scrollbar */
+.map-svg-wrap{
+  background:var(--card);border-radius:var(--radius);padding:10px;overflow:hidden;
+  touch-action:manipulation;
+}
+.map-svg-wrap svg{display:block;width:100%;height:auto}
+.map-svg-wrap svg polygon, .map-svg-wrap svg path{
+  stroke:#0d1b30;stroke-width:1.5;cursor:pointer;
+  transition:fill .25s, opacity .25s;
+}
+.map-svg-wrap svg polygon:hover, .map-svg-wrap svg path:hover{opacity:.85}
+.map-svg-wrap svg text{
+  font-family:'Fredoka',sans-serif;font-size:9px;fill:#fff;
+  pointer-events:none;text-anchor:middle;font-weight:600;
+  text-shadow:0 1px 3px rgba(0,0,0,.7);
+}
+.map-svg-wrap svg text.small-label{font-size:7px}
+
+.map-info-popup{
+  text-align:center;margin-top:10px;padding:14px;
+  background:var(--card);border-radius:var(--radius-sm);
+  display:none;
+}
+.map-info-popup.show{display:block}
+.map-info-popup .pop-emoji{font-size:1.8rem}
+.map-info-popup .pop-name{font-family:'Fredoka',sans-serif;font-size:1.2rem;font-weight:700}
+.map-info-popup .pop-cap{color:var(--mint);font-family:'Fredoka',sans-serif;font-size:1rem;margin-top:2px}
+.map-info-popup .pop-clue{color:var(--text-dim);font-size:.85rem;margin-top:4px}
+
+.map-result-banner{
+  text-align:center;padding:16px;margin-top:10px;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;display:none;
+}
+.map-result-banner.show{display:block}
+.map-result-banner.yay{background:rgba(83,216,168,.15);color:var(--mint)}
+.map-result-banner.nay{background:rgba(233,69,96,.15);color:var(--coral)}
+
+/* Confetti */
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.confetti-piece{position:fixed;top:0;width:10px;height:10px;border-radius:2px;animation:fall 2.5s ease-in forwards;pointer-events:none;z-index:999}
 .main::-webkit-scrollbar{width:4px}
 .main::-webkit-scrollbar-thumb{background:var(--card2);border-radius:4px}
 </style>
@@ -290,10 +232,11 @@ body{
   <div class="star-count" id="starCount">⭐ 0 / 21</div>
 </div>
 
-<div class="nav">
+<div class="nav" id="navBar">
   <button class="active" onclick="showTab('home')">🏠 Home</button>
   <button onclick="showTab('cards')">🃏 Cards</button>
   <button onclick="showTab('list')">📋 List</button>
+  <button onclick="showTab('map')">🗺️ Map</button>
   <button onclick="showTab('quiz')">🧠 Quiz</button>
   <button onclick="showTab('match')">🎯 Match</button>
 </div>
@@ -301,41 +244,76 @@ body{
 <div class="main" id="mainArea"></div>
 
 <script>
-// ── DATA ──
+// ── STATE DATA ──
 const states = [
-  {emoji:"🌲",name:"Washington",capital:"Olympia",clue:"Top-left corner on the Pacific Ocean"},
-  {emoji:"🌧️",name:"Oregon",capital:"Salem",clue:"Right under Washington on the coast"},
-  {emoji:"🌞",name:"California",capital:"Sacramento",clue:"The long coast state under Oregon"},
-  {emoji:"🎰",name:"Nevada",capital:"Carson City",clue:"Next to California — think desert and Las Vegas"},
-  {emoji:"🥔",name:"Idaho",capital:"Boise",clue:"The tall state with the skinny top above Utah"},
-  {emoji:"🏔️",name:"Montana",capital:"Helena",clue:"A huge state on top of Wyoming"},
-  {emoji:"🌵",name:"Arizona",capital:"Phoenix",clue:"On the Mexico border, west of New Mexico"},
-  {emoji:"🐝",name:"Utah",capital:"Salt Lake City",clue:"The boxy state above Arizona"},
-  {emoji:"🤠",name:"Wyoming",capital:"Cheyenne",clue:"A rectangle under Montana"},
-  {emoji:"🎈",name:"New Mexico",capital:"Santa Fe",clue:"East of Arizona and south of Colorado"},
-  {emoji:"⛰️",name:"Colorado",capital:"Denver",clue:"A rectangle east of Utah"},
-  {emoji:"⭐",name:"Texas",capital:"Austin",clue:"The giant state with the pointy bottom"},
-  {emoji:"🌾",name:"North Dakota",capital:"Bismarck",clue:"The top state above South Dakota"},
-  {emoji:"🗿",name:"South Dakota",capital:"Pierre",clue:"Right under North Dakota"},
-  {emoji:"🌽",name:"Nebraska",capital:"Lincoln",clue:"The long state under South Dakota"},
-  {emoji:"🌀",name:"Oklahoma",capital:"Oklahoma City",clue:"Under Kansas, with a little panhandle"},
-  {emoji:"🌻",name:"Kansas",capital:"Topeka",clue:"A rectangle above Oklahoma"},
-  {emoji:"🛶",name:"Minnesota",capital:"Saint Paul",clue:"The state with lots of lakes and a northeast bump"},
-  {emoji:"🚜",name:"Iowa",capital:"Des Moines",clue:"East of Nebraska and above Missouri"},
-  {emoji:"🚪",name:"Missouri",capital:"Jefferson City",clue:"Under Iowa and west of Illinois"},
-  {emoji:"🌺",name:"Hawaii",capital:"Honolulu",clue:"A chain of islands far out in the Pacific"}
+  {emoji:"🌲",name:"Washington",capital:"Olympia",clue:"Top-left corner on the Pacific Ocean",abbr:"WA"},
+  {emoji:"🌧️",name:"Oregon",capital:"Salem",clue:"Right under Washington on the coast",abbr:"OR"},
+  {emoji:"🌞",name:"California",capital:"Sacramento",clue:"The long coast state under Oregon",abbr:"CA"},
+  {emoji:"🎰",name:"Nevada",capital:"Carson City",clue:"Next to California — think desert and Las Vegas",abbr:"NV"},
+  {emoji:"🥔",name:"Idaho",capital:"Boise",clue:"The tall state with the skinny top above Utah",abbr:"ID"},
+  {emoji:"🏔️",name:"Montana",capital:"Helena",clue:"A huge state on top of Wyoming",abbr:"MT"},
+  {emoji:"🌵",name:"Arizona",capital:"Phoenix",clue:"On the Mexico border, west of New Mexico",abbr:"AZ"},
+  {emoji:"🐝",name:"Utah",capital:"Salt Lake City",clue:"The boxy state above Arizona",abbr:"UT"},
+  {emoji:"🤠",name:"Wyoming",capital:"Cheyenne",clue:"A rectangle under Montana",abbr:"WY"},
+  {emoji:"🎈",name:"New Mexico",capital:"Santa Fe",clue:"East of Arizona and south of Colorado",abbr:"NM"},
+  {emoji:"⛰️",name:"Colorado",capital:"Denver",clue:"A rectangle east of Utah",abbr:"CO"},
+  {emoji:"⭐",name:"Texas",capital:"Austin",clue:"The giant state with the pointy bottom",abbr:"TX"},
+  {emoji:"🌾",name:"North Dakota",capital:"Bismarck",clue:"The top state above South Dakota",abbr:"ND"},
+  {emoji:"🗿",name:"South Dakota",capital:"Pierre",clue:"Right under North Dakota",abbr:"SD"},
+  {emoji:"🌽",name:"Nebraska",capital:"Lincoln",clue:"The long state under South Dakota",abbr:"NE"},
+  {emoji:"🌀",name:"Oklahoma",capital:"Oklahoma City",clue:"Under Kansas, with a little panhandle",abbr:"OK"},
+  {emoji:"🌻",name:"Kansas",capital:"Topeka",clue:"A rectangle above Oklahoma",abbr:"KS"},
+  {emoji:"🛶",name:"Minnesota",capital:"Saint Paul",clue:"The state with lots of lakes and a northeast bump",abbr:"MN"},
+  {emoji:"🚜",name:"Iowa",capital:"Des Moines",clue:"East of Nebraska and above Missouri",abbr:"IA"},
+  {emoji:"🚪",name:"Missouri",capital:"Jefferson City",clue:"Under Iowa and west of Illinois",abbr:"MO"},
+  {emoji:"🌺",name:"Hawaii",capital:"Honolulu",clue:"A chain of islands far out in the Pacific",abbr:"HI"}
 ];
 
+// Map polygon data: points string for SVG, label x,y, fill color
+// Coordinate system: viewBox 0 0 720 500
+// Rough mapping: x=(lon+125)*19  y=(49-lat)*21
+const mapData = {
+  "Washington":  {pts:"10,12 75,0 155,0 155,64 20,60 10,36", lx:82, ly:32, fill:"#48b2e8"},
+  "Oregon":      {pts:"14,60 155,64 155,150 10,150", lx:82, ly:107, fill:"#53d8a8"},
+  "California":  {pts:"10,150 95,150 200,300 200,350 155,370 122,345 78,298 32,244 10,198", lx:80, ly:258, fill:"#f6c90e"},
+  "Nevada":      {pts:"95,150 213,150 213,280 200,300", lx:162, ly:215, fill:"#b68eff"},
+  "Idaho":       {pts:"155,0 198,0 198,64 270,85 270,150 213,150 155,150 155,64", lx:205, ly:100, fill:"#ff9a76"},
+  "Montana":     {pts:"198,0 408,0 408,85 270,85 198,64", lx:310, ly:40, fill:"#e94560"},
+  "Wyoming":     {pts:"270,85 408,85 408,172 270,172", lx:339, ly:128, fill:"#48b2e8"},
+  "Utah":        {pts:"213,150 270,150 270,172 310,172 310,258 213,258", lx:258, ly:206, fill:"#53d8a8"},
+  "Colorado":    {pts:"310,172 446,172 446,258 310,258", lx:378, ly:215, fill:"#f6c90e"},
+  "Arizona":     {pts:"198,258 310,258 310,382 213,382 198,300", lx:256, ly:320, fill:"#e94560"},
+  "New Mexico":  {pts:"310,258 427,258 427,370 356,370 356,382 310,382", lx:368, ly:320, fill:"#b68eff"},
+  "Texas":       {pts:"427,258 485,258 485,322 598,306 604,355 572,402 538,440 498,450 468,418 446,388 427,370", lx:510, ly:360, fill:"#ff9a76"},
+  "North Dakota":{pts:"408,0 552,0 552,64 408,64", lx:480, ly:32, fill:"#53d8a8"},
+  "South Dakota":{pts:"408,64 552,64 552,140 408,140", lx:480, ly:102, fill:"#f6c90e"},
+  "Nebraska":    {pts:"408,140 552,140 574,158 574,194 446,194 408,194", lx:490, ly:166, fill:"#b68eff"},
+  "Kansas":      {pts:"446,194 590,194 590,258 446,258", lx:518, ly:226, fill:"#e94560"},
+  "Oklahoma":    {pts:"427,258 590,258 590,330 485,330 485,272 427,272", lx:528, ly:294, fill:"#48b2e8"},
+  "Minnesota":   {pts:"552,0 578,0 578,8 662,12 668,54 664,130 552,130", lx:608, ly:65, fill:"#ff9a76"},
+  "Iowa":        {pts:"552,130 664,130 678,150 678,194 590,194 574,194 552,172", lx:616, ly:162, fill:"#e94560"},
+  "Missouri":    {pts:"590,194 678,194 695,210 695,280 678,280 660,264 595,280 590,258", lx:642, ly:236, fill:"#53d8a8"},
+  "Hawaii":      {pts:"48,418 60,412 74,414 82,420 78,430 64,434 50,430", lx:65, ly:440, fill:"#f6c90e", isIsland:true}
+};
+
+// Extra island shapes for Hawaii visual
+const hawaiiExtras = [
+  "30,440 38,436 48,438 46,444 36,446",  // Oahu-ish
+  "56,442 64,438 72,440 70,448 60,450",  // Maui-ish
+  "80,438 96,432 108,436 106,446 92,450 80,446", // Big Island-ish
+  "20,434 28,432 32,436 26,440" // Kauai-ish
+];
+
+// ── STARS ──
 let stars = {};
 try { stars = JSON.parse(localStorage.getItem('mapquest_stars')||'{}'); } catch(e){}
-let currentCard = 0;
-let cardRevealed = false;
-let currentTab = 'home';
-
-// Quiz state
+let currentCard = 0, cardRevealed = false, currentTab = 'home';
 let quizOrder=[], quizIdx=0, quizAnswers=[], quizAnswered=false;
-// Match state
 let matchPairs=[], matchSelected=null, matchedCount=0;
+
+// Map game state
+let mapMode = 'game'; // 'game' or 'explore'
+let mapGameOrder=[], mapGameIdx=0, mapGameScore=0, mapGameActive=false;
 
 function saveStars(){ try{localStorage.setItem('mapquest_stars',JSON.stringify(stars))}catch(e){} }
 function countStars(){ return Object.keys(stars).length; }
@@ -343,8 +321,8 @@ function updateStarDisplay(){ document.getElementById('starCount').textContent =
 
 function showTab(tab){
   currentTab = tab;
+  const tabs=['home','cards','list','map','quiz','match'];
   document.querySelectorAll('.nav button').forEach((b,i)=>{
-    const tabs=['home','cards','list','quiz','match'];
     b.classList.toggle('active', tabs[i]===tab);
   });
   const m = document.getElementById('mainArea');
@@ -352,6 +330,7 @@ function showTab(tab){
   if(tab==='home') renderHome();
   else if(tab==='cards') renderCards();
   else if(tab==='list') renderList();
+  else if(tab==='map') renderMap();
   else if(tab==='quiz') startQuiz();
   else if(tab==='match') startMatch();
 }
@@ -384,9 +363,7 @@ function renderCards(){
   const s = states[currentCard];
   const isStarred = stars[s.name];
   document.getElementById('mainArea').innerHTML = `
-    <div class="flash-header">
-      <div class="count">Card ${currentCard+1} of ${states.length}</div>
-    </div>
+    <div class="flash-header"><div class="count">Card ${currentCard+1} of ${states.length}</div></div>
     <div class="flashcard" onclick="toggleReveal()">
       <div class="flash-top">
         <div class="flash-emoji">${s.emoji}</div>
@@ -408,14 +385,11 @@ function renderCards(){
 function toggleReveal(){ cardRevealed=!cardRevealed; renderCards(); }
 function nextCard(){ currentCard=(currentCard+1)%states.length; cardRevealed=false; renderCards(); }
 function prevCard(){ currentCard=(currentCard-1+states.length)%states.length; cardRevealed=false; renderCards(); }
-function toggleStar(name){
-  if(stars[name]) delete stars[name]; else stars[name]=true;
-  saveStars(); updateStarDisplay(); renderCards();
-}
+function toggleStar(name){ if(stars[name]) delete stars[name]; else stars[name]=true; saveStars(); updateStarDisplay(); renderCards(); }
 
 // ── LIST ──
 function renderList(){
-  let html = states.map((s,i)=>`
+  document.getElementById('mainArea').innerHTML = states.map((s,i)=>`
     <div class="state-list-item" onclick="currentCard=${i};cardRevealed=false;showTab('cards')">
       <div class="sli-emoji">${s.emoji}</div>
       <div class="sli-info">
@@ -425,35 +399,220 @@ function renderList(){
       </div>
       <div class="sli-star ${stars[s.name]?'earned':''}">${stars[s.name]?'⭐':'☆'}</div>
     </div>`).join('');
-  document.getElementById('mainArea').innerHTML = html;
+}
+
+// ── MAP ──
+function buildMapSVG(highlightState, foundStates, showLabels){
+  let svg = `<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg">`;
+  // Ocean background
+  svg += `<rect x="0" y="0" width="720" height="500" fill="#0a1628" rx="10"/>`;
+  // Mexico / Canada hints
+  svg += `<text x="360" y="496" fill="#1e3050" font-size="10" text-anchor="middle" font-family="Fredoka,sans-serif">— Mexico Border —</text>`;
+  svg += `<text x="360" y="10" fill="#1e3050" font-size="10" text-anchor="middle" font-family="Fredoka,sans-serif">— Canada Border —</text>`;
+
+  // Draw Hawaii extras first (background islands)
+  hawaiiExtras.forEach(pts => {
+    let f = mapData["Hawaii"].fill;
+    if(foundStates && foundStates.has("Hawaii")) f = "#53d8a8";
+    if(highlightState === "Hawaii") f = "#fff59d";
+    svg += `<polygon points="${pts}" fill="${f}" stroke="#0d1b30" stroke-width="1" opacity="0.7"/>`;
+  });
+
+  // Hawaii ocean label
+  svg += `<text x="65" y="408" fill="#2a4060" font-size="8" text-anchor="middle" font-family="Fredoka,sans-serif">Pacific Ocean</text>`;
+
+  // Draw all states
+  for(const s of states){
+    const d = mapData[s.name];
+    if(!d) continue;
+    let fill = d.fill;
+    let strokeW = 1.5;
+    let opacity = 1;
+
+    if(foundStates && foundStates.has(s.name)){
+      fill = "#53d8a8"; // green for found
+    }
+    if(highlightState === s.name){
+      fill = "#fff59d"; strokeW = 3; // bright highlight
+    }
+
+    svg += `<polygon points="${d.pts}" fill="${fill}" stroke="#0d1b30" stroke-width="${strokeW}" opacity="${opacity}"
+      onclick="mapTap('${s.name}')" data-state="${s.name}"/>`;
+
+    if(showLabels || (foundStates && foundStates.has(s.name))){
+      const cls = (s.name==="Hawaii"||s.name==="Utah") ? ' class="small-label"' : '';
+      svg += `<text x="${d.lx}" y="${d.ly+3}"${cls}>${s.abbr}</text>`;
+    }
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
+function renderMap(){
+  const m = document.getElementById('mainArea');
+  let html = `
+    <div class="map-mode-toggle">
+      <button class="${mapMode==='game'?'active':''}" onclick="mapMode='game';startMapGame()">🎮 Find the State</button>
+      <button class="${mapMode==='explore'?'active':''}" onclick="mapMode='explore';renderMapExplore()">🔍 Explore</button>
+    </div>
+    <div id="mapContent"></div>`;
+  m.innerHTML = html;
+  if(mapMode==='game') startMapGame();
+  else renderMapExplore();
+}
+
+function renderMapExplore(){
+  const mc = document.getElementById('mapContent');
+  mc.innerHTML = `
+    <div class="map-prompt">
+      <div class="find-label">Explore Mode</div>
+      <div class="find-state" style="font-size:1.1rem;color:var(--sky)">👆 Tap any state to learn about it!</div>
+    </div>
+    <div class="map-svg-wrap">${buildMapSVG(null, null, true)}</div>
+    <div class="map-info-popup" id="mapPopup"></div>`;
+}
+
+function startMapGame(){
+  mapGameOrder = shuffle([...Array(states.length).keys()]);
+  mapGameIdx = 0;
+  mapGameScore = 0;
+  mapGameActive = true;
+  renderMapGame();
+}
+
+function renderMapGame(){
+  if(mapGameIdx >= states.length){
+    renderMapResults();
+    return;
+  }
+  const s = states[mapGameOrder[mapGameIdx]];
+  const found = new Set(mapGameOrder.slice(0, mapGameIdx).map(i=>states[i].name));
+
+  let pips = '';
+  for(let i=0;i<states.length;i++){
+    let cls = 'map-pip';
+    if(i < mapGameIdx) cls += ' done';
+    if(i === mapGameIdx) cls += ' current';
+    pips += `<div class="${cls}"></div>`;
+  }
+
+  const mc = document.getElementById('mapContent');
+  mc.innerHTML = `
+    <div class="map-progress">${pips}</div>
+    <div class="map-prompt">
+      <div class="find-label">Find this state!</div>
+      <div class="find-emoji">${s.emoji}</div>
+      <div class="find-state">${s.name}</div>
+      <div class="find-clue">📍 ${s.clue}</div>
+    </div>
+    <div class="map-svg-wrap">${buildMapSVG(null, found, false)}</div>
+    <div class="map-result-banner" id="mapBanner"></div>`;
+}
+
+function mapTap(stateName){
+  if(mapMode === 'explore'){
+    const s = states.find(x=>x.name===stateName);
+    if(!s) return;
+    const popup = document.getElementById('mapPopup');
+    popup.className = 'map-info-popup show';
+    popup.innerHTML = `
+      <div class="pop-emoji">${s.emoji}</div>
+      <div class="pop-name">${s.name}</div>
+      <div class="pop-cap">Capital: ${s.capital}</div>
+      <div class="pop-clue">📍 ${s.clue}</div>`;
+
+    // Highlight tapped state
+    document.querySelectorAll('[data-state]').forEach(el=>{
+      if(el.getAttribute('data-state')===stateName){
+        el.style.fill = '#fff59d';
+        el.style.strokeWidth = '3';
+      } else {
+        const d = mapData[el.getAttribute('data-state')];
+        if(d){ el.style.fill = d.fill; el.style.strokeWidth = '1.5'; }
+      }
+    });
+    return;
+  }
+
+  // Game mode
+  if(!mapGameActive || mapGameIdx >= states.length) return;
+  const target = states[mapGameOrder[mapGameIdx]];
+  const banner = document.getElementById('mapBanner');
+
+  if(stateName === target.name){
+    // Correct!
+    mapGameScore++;
+    if(!stars[target.name]){ stars[target.name]=true; saveStars(); updateStarDisplay(); }
+
+    // Flash the state green
+    document.querySelectorAll('[data-state="'+stateName+'"]').forEach(el=>{
+      el.style.fill = '#53d8a8'; el.style.strokeWidth = '3';
+    });
+    banner.className = 'map-result-banner show yay';
+    banner.innerHTML = `🎉 That's ${target.name}! Capital: ${target.capital}`;
+
+    mapGameActive = false;
+    setTimeout(()=>{
+      mapGameIdx++;
+      mapGameActive = true;
+      renderMapGame();
+    }, 1500);
+  } else {
+    // Wrong — flash red
+    document.querySelectorAll('[data-state="'+stateName+'"]').forEach(el=>{
+      el.style.fill = '#e94560';
+      setTimeout(()=>{ const d=mapData[stateName]; if(d) el.style.fill = d.fill; }, 500);
+    });
+    banner.className = 'map-result-banner show nay';
+    banner.innerHTML = `That's ${stateName} — try again!`;
+    setTimeout(()=>{ banner.className = 'map-result-banner'; }, 1200);
+  }
+}
+
+function renderMapResults(){
+  const mc = document.getElementById('mapContent');
+  let level='Keep Practicing!', emoji='🎒';
+  if(mapGameScore>=21){level='🗺️ Map Master!';emoji='🏆';}
+  else if(mapGameScore>=15){level='Capital Champ!';emoji='🥇';}
+  else if(mapGameScore>=10){level='Map Detective!';emoji='🔍';}
+  else if(mapGameScore>=5){level='Trail Starter!';emoji='🥾';}
+  mc.innerHTML = `
+    <div class="results">
+      <div class="big-emoji">${emoji}</div>
+      <h2>Map Game Complete!</h2>
+      <div class="score">${mapGameScore} / ${states.length}</div>
+      <div class="level">${level}</div>
+      <button onclick="startMapGame();renderMapGame()">Play Again 🔄</button>
+      <div style="margin-top:14px">
+        <button onclick="mapMode='explore';renderMap()" style="background:linear-gradient(135deg,var(--sky),var(--mint))">
+          🔍 Explore the Map
+        </button>
+      </div>
+    </div>`;
+  if(mapGameScore >= 15) launchConfetti();
 }
 
 // ── QUIZ ──
-function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 
 function startQuiz(){
   quizOrder=shuffle([...Array(states.length).keys()]);
-  quizIdx=0; quizAnswers=[]; quizAnswered=false;
-  renderQuiz();
+  quizIdx=0;quizAnswers=[];quizAnswered=false;renderQuiz();
 }
 function renderQuiz(){
-  if(quizIdx>=states.length){ renderResults(); return; }
-  const s = states[quizOrder[quizIdx]];
-  // Build 4 options
-  let opts = [s.capital];
-  let pool = states.filter(x=>x.capital!==s.capital).map(x=>x.capital);
-  shuffle(pool);
-  opts.push(...pool.slice(0,3));
-  shuffle(opts);
-
-  let dots = '';
+  if(quizIdx>=states.length){renderQuizResults();return;}
+  const s=states[quizOrder[quizIdx]];
+  let opts=[s.capital];
+  let pool=states.filter(x=>x.capital!==s.capital).map(x=>x.capital);
+  shuffle(pool);opts.push(...pool.slice(0,3));shuffle(opts);
+  let dots='';
   for(let i=0;i<states.length;i++){
-    let cls = 'quiz-dot';
-    if(i<quizAnswers.length) cls += quizAnswers[i]?' correct':' wrong';
-    if(i===quizIdx) cls += ' current';
-    dots += `<div class="${cls}">${i+1}</div>`;
+    let cls='quiz-dot';
+    if(i<quizAnswers.length) cls+=quizAnswers[i]?' correct':' wrong';
+    if(i===quizIdx) cls+=' current';
+    dots+=`<div class="${cls}">${i+1}</div>`;
   }
-
   document.getElementById('mainArea').innerHTML = `
     <div class="quiz-progress">${dots}</div>
     <div class="quiz-card">
@@ -463,42 +622,35 @@ function renderQuiz(){
     </div>
     <div class="quiz-options" id="quizOpts">
       ${opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},'${o.replace(/'/g,"\\'")}','${s.capital.replace(/'/g,"\\'")}')">${o}</div>`).join('')}
-    </div>
-    <div id="quizFeedback"></div>`;
+    </div><div id="quizFeedback"></div>`;
   quizAnswered=false;
 }
 function answerQuiz(idx,chosen,correct){
-  if(quizAnswered) return;
-  quizAnswered=true;
-  const isRight = chosen===correct;
-  quizAnswers.push(isRight);
-  const btns = document.querySelectorAll('.quiz-opt');
-  btns.forEach(b=>{
+  if(quizAnswered)return;quizAnswered=true;
+  const isRight=chosen===correct;quizAnswers.push(isRight);
+  document.querySelectorAll('.quiz-opt').forEach(b=>{
     if(b.textContent===correct) b.classList.add('correct');
-    else if(b.textContent===chosen && !isRight) b.classList.add('wrong');
+    else if(b.textContent===chosen&&!isRight) b.classList.add('wrong');
     else b.classList.add('disabled');
   });
-  const fb = document.getElementById('quizFeedback');
+  const fb=document.getElementById('quizFeedback');
   if(isRight){
-    fb.innerHTML = `<div class="quiz-feedback yay">🎉 Correct!</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
-    if(!stars[states[quizOrder[quizIdx]].name]){
-      stars[states[quizOrder[quizIdx]].name]=true; saveStars(); updateStarDisplay();
-    }
+    fb.innerHTML=`<div class="quiz-feedback yay">🎉 Correct!</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
+    if(!stars[states[quizOrder[quizIdx]].name]){stars[states[quizOrder[quizIdx]].name]=true;saveStars();updateStarDisplay();}
   } else {
-    fb.innerHTML = `<div class="quiz-feedback nay">The answer is ${correct}</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
+    fb.innerHTML=`<div class="quiz-feedback nay">The answer is ${correct}</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
   }
 }
-function renderResults(){
-  const score = quizAnswers.filter(Boolean).length;
-  let level='Keep Practicing!', emoji='🎒';
-  if(score>=21){level='Map Master! 🗺️';emoji='🏆'}
-  else if(score>=15){level='Capital Champ!';emoji='🥇'}
-  else if(score>=10){level='Map Detective!';emoji='🔍'}
-  else if(score>=5){level='Trail Starter!';emoji='🥾'}
-  document.getElementById('mainArea').innerHTML = `
+function renderQuizResults(){
+  const score=quizAnswers.filter(Boolean).length;
+  let level='Keep Practicing!',emoji='🎒';
+  if(score>=21){level='Map Master! 🗺️';emoji='🏆';}
+  else if(score>=15){level='Capital Champ!';emoji='🥇';}
+  else if(score>=10){level='Map Detective!';emoji='🔍';}
+  else if(score>=5){level='Trail Starter!';emoji='🥾';}
+  document.getElementById('mainArea').innerHTML=`
     <div class="results">
-      <div class="big-emoji">${emoji}</div>
-      <h2>Quiz Complete!</h2>
+      <div class="big-emoji">${emoji}</div><h2>Quiz Complete!</h2>
       <div class="score">${score} / ${states.length}</div>
       <div class="level">${level}</div>
       <button onclick="startQuiz()">Try Again 🔄</button>
@@ -506,70 +658,43 @@ function renderResults(){
   if(score>=15) launchConfetti();
 }
 
-// ── MATCH GAME ──
+// ── MATCH ──
 function startMatch(){
-  // Pick 6 random states for matching
-  let pool = shuffle([...Array(states.length).keys()]).slice(0,6);
-  matchPairs = pool.map(i=>({state:states[i].name, capital:states[i].capital}));
-  matchSelected=null; matchedCount=0;
-  renderMatch();
+  let pool=shuffle([...Array(states.length).keys()]).slice(0,6);
+  matchPairs=pool.map(i=>({state:states[i].name,capital:states[i].capital}));
+  matchSelected=null;matchedCount=0;renderMatchGame();
 }
-function renderMatch(){
-  let leftItems = shuffle(matchPairs.map((p,i)=>({text:p.state,idx:i,side:'state'})));
-  let rightItems = shuffle(matchPairs.map((p,i)=>({text:p.capital,idx:i,side:'capital'})));
-  // Store for click handling
-  window._matchLeft = leftItems;
-  window._matchRight = rightItems;
-  window._matched = new Set();
-  window._sel = null;
-
-  let grid = '<div style="display:flex;gap:8px">';
-  grid += '<div style="flex:1;display:flex;flex-direction:column;gap:8px">';
-  leftItems.forEach((item,vi)=>{
-    grid += `<div class="match-btn" data-side="state" data-idx="${item.idx}" data-vi="${vi}" onclick="matchClick(this,'state',${item.idx})">${item.text}</div>`;
-  });
-  grid += '</div><div style="flex:1;display:flex;flex-direction:column;gap:8px">';
-  rightItems.forEach((item,vi)=>{
-    grid += `<div class="match-btn" data-side="capital" data-idx="${item.idx}" data-vi="${vi}" onclick="matchClick(this,'capital',${item.idx})">${item.text}</div>`;
-  });
-  grid += '</div></div>';
-
-  document.getElementById('mainArea').innerHTML = `
+function renderMatchGame(){
+  let left=shuffle(matchPairs.map((p,i)=>({text:p.state,idx:i,side:'state'})));
+  let right=shuffle(matchPairs.map((p,i)=>({text:p.capital,idx:i,side:'capital'})));
+  window._matched=new Set();window._sel=null;
+  let grid='<div style="display:flex;gap:8px"><div style="flex:1;display:flex;flex-direction:column;gap:8px">';
+  left.forEach(item=>{grid+=`<div class="match-btn" data-side="state" data-idx="${item.idx}" onclick="matchClick(this,'state',${item.idx})">${item.text}</div>`;});
+  grid+='</div><div style="flex:1;display:flex;flex-direction:column;gap:8px">';
+  right.forEach(item=>{grid+=`<div class="match-btn" data-side="capital" data-idx="${item.idx}" onclick="matchClick(this,'capital',${item.idx})">${item.text}</div>`;});
+  grid+='</div></div>';
+  document.getElementById('mainArea').innerHTML=`
     <div class="match-instr">Tap a state, then tap its capital!</div>
-    ${grid}
-    <div class="match-score" id="matchScore">Matched: 0 / 6</div>`;
+    ${grid}<div class="match-score" id="matchScore">Matched: 0 / 6</div>`;
 }
-function matchClick(el, side, idx){
-  if(window._matched.has(idx) && el.classList.contains('matched')) return;
+function matchClick(el,side,idx){
+  if(window._matched.has(idx)&&el.classList.contains('matched'))return;
   if(window._sel===null){
     document.querySelectorAll('.match-btn').forEach(b=>b.classList.remove('selected'));
-    el.classList.add('selected');
-    window._sel = {side, idx, el};
+    el.classList.add('selected');window._sel={side,idx,el};
   } else {
-    if(window._sel.side === side){ // same column, switch selection
-      window._sel.el.classList.remove('selected');
-      el.classList.add('selected');
-      window._sel = {side, idx, el};
-      return;
-    }
-    // Different columns — check match
-    if(window._sel.idx === idx){
-      // Correct!
-      window._sel.el.classList.remove('selected');
-      window._sel.el.classList.add('matched');
-      el.classList.add('matched');
-      window._matched.add(idx);
-      window._sel = null;
-      document.getElementById('matchScore').textContent = `Matched: ${window._matched.size} / 6`;
+    if(window._sel.side===side){window._sel.el.classList.remove('selected');el.classList.add('selected');window._sel={side,idx,el};return;}
+    if(window._sel.idx===idx){
+      window._sel.el.classList.remove('selected');window._sel.el.classList.add('matched');
+      el.classList.add('matched');window._matched.add(idx);window._sel=null;
+      document.getElementById('matchScore').textContent=`Matched: ${window._matched.size} / 6`;
       if(window._matched.size===6){
-        document.getElementById('matchScore').innerHTML = `<span style="color:var(--mint);font-size:1.2rem">🎉 All matched!</span><br><button class="quiz-next" style="margin-top:12px" onclick="startMatch()">Play Again 🔄</button>`;
+        document.getElementById('matchScore').innerHTML=`<span style="color:var(--mint);font-size:1.2rem">🎉 All matched!</span><br><button class="quiz-next" style="margin-top:12px" onclick="startMatch()">Play Again 🔄</button>`;
         launchConfetti();
       }
     } else {
-      // Wrong
-      el.classList.add('wrong-flash');
-      window._sel.el.classList.add('wrong-flash');
-      const a=el, b=window._sel.el;
+      el.classList.add('wrong-flash');window._sel.el.classList.add('wrong-flash');
+      const a=el,b=window._sel.el;
       setTimeout(()=>{a.classList.remove('wrong-flash');b.classList.remove('wrong-flash','selected');},600);
       window._sel=null;
     }
@@ -578,21 +703,16 @@ function matchClick(el, side, idx){
 
 // ── Confetti ──
 function launchConfetti(){
-  const colors = ['#f6c90e','#e94560','#53d8a8','#48b2e8','#b68eff','#ff9a76'];
+  const colors=['#f6c90e','#e94560','#53d8a8','#48b2e8','#b68eff','#ff9a76'];
   for(let i=0;i<50;i++){
-    const c=document.createElement('div');
-    c.className='confetti-piece';
-    c.style.left=Math.random()*100+'vw';
-    c.style.background=colors[Math.floor(Math.random()*colors.length)];
-    c.style.animationDelay=(Math.random()*1.5)+'s';
-    c.style.width=(6+Math.random()*8)+'px';
-    c.style.height=(6+Math.random()*8)+'px';
-    document.body.appendChild(c);
+    const c=document.createElement('div');c.className='confetti-piece';
+    c.style.left=Math.random()*100+'vw';c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDelay=(Math.random()*1.5)+'s';c.style.width=(6+Math.random()*8)+'px';
+    c.style.height=(6+Math.random()*8)+'px';document.body.appendChild(c);
     setTimeout(()=>c.remove(),4000);
   }
 }
 
-// ── Init ──
 updateStarDisplay();
 renderHome();
 </script>
