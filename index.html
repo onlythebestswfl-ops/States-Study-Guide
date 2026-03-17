@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Western States + Hawaii Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#1a1a2e;--card:#16213e;--card2:#0f3460;
+  --sun:#f6c90e;--coral:#e94560;--mint:#53d8a8;--sky:#48b2e8;--lavender:#b68eff;--peach:#ff9a76;
+  --text:#f0f0f0;--text-dim:#a0a8c0;
+  --radius:20px;--radius-sm:14px;
+}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);
+  display:flex;flex-direction:column;
+  touch-action:manipulation;
+}
+
+/* ── Top bar ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;background:var(--card);
+  border-bottom:3px solid var(--card2);
+  flex-shrink:0;
+}
+.topbar h1{
+  font-family:'Fredoka',sans-serif;font-size:1.15rem;font-weight:700;
+  background:linear-gradient(135deg,var(--sun),var(--coral));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.star-count{
+  font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;
+  color:var(--sun);display:flex;align-items:center;gap:6px;
+}
+
+/* ── Nav tabs ── */
+.nav{
+  display:flex;gap:6px;padding:10px 12px;
+  background:var(--card);flex-shrink:0;overflow-x:auto;
+}
+.nav button{
+  flex:1;min-width:0;padding:10px 6px;border:none;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;
+  background:var(--card2);color:var(--text-dim);cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.nav button.active{
+  background:linear-gradient(135deg,var(--coral),var(--lavender));
+  color:#fff;transform:scale(1.03);
+}
+
+/* ── Main scroll area ── */
+.main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px}
+
+/* ── Home screen ── */
+.home-hero{
+  text-align:center;padding:30px 16px 20px;
+}
+.home-hero .emoji-row{font-size:2.2rem;letter-spacing:8px;margin-bottom:12px}
+.home-hero h2{
+  font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;
+  background:linear-gradient(135deg,var(--sun),var(--mint));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.home-hero p{color:var(--text-dim);font-size:.95rem;line-height:1.5}
+
+.how-to{
+  background:var(--card);border-radius:var(--radius);padding:20px;margin:16px 0;
+}
+.how-to h3{
+  font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--mint);margin-bottom:14px;
+}
+.step-row{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.step-num{
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;flex-shrink:0;
+}
+.step-num.s1{background:var(--sky);color:#fff}
+.step-num.s2{background:var(--coral);color:#fff}
+.step-num.s3{background:var(--sun);color:var(--bg)}
+.step-text{font-size:.9rem;line-height:1.4;padding-top:6px}
+.step-text b{color:var(--sun)}
+
+.level-box{
+  background:var(--card2);border-radius:var(--radius-sm);padding:16px;margin-top:14px;
+}
+.level-box h4{font-family:'Fredoka',sans-serif;color:var(--peach);margin-bottom:10px;font-size:1rem}
+.level-row{font-size:.9rem;margin-bottom:6px;display:flex;gap:6px}
+
+/* ── Flashcards ── */
+.flash-header{
+  text-align:center;margin-bottom:14px;
+}
+.flash-header .count{
+  font-family:'Fredoka',sans-serif;color:var(--text-dim);font-size:.9rem;
+}
+
+.flashcard{
+  background:var(--card);border-radius:var(--radius);padding:0;
+  min-height:320px;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
+  cursor:pointer;
+  transition:transform .15s;
+}
+.flashcard:active{transform:scale(.97)}
+
+.flash-top{
+  padding:28px 24px 18px;flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+}
+.flash-emoji{font-size:3rem;margin-bottom:10px}
+.flash-state{
+  font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:6px;
+}
+.flash-clue{color:var(--text-dim);font-size:.92rem;line-height:1.4;max-width:300px}
+
+.flash-bottom{
+  padding:20px 24px;text-align:center;
+  border-top:3px dashed rgba(255,255,255,.1);
+  transition:all .3s;
+}
+.flash-bottom.hidden{
+  filter:blur(16px);user-select:none;-webkit-user-select:none;
+}
+.flash-bottom .label{
+  font-size:.75rem;text-transform:uppercase;letter-spacing:2px;
+  color:var(--text-dim);margin-bottom:6px;
+}
+.flash-bottom .capital{
+  font-family:'Fredoka',sans-serif;font-size:1.6rem;font-weight:700;
+  color:var(--mint);
+}
+.flash-tap-hint{
+  text-align:center;color:var(--text-dim);font-size:.8rem;margin-top:8px;
+  opacity:.7;
+}
+
+.flash-nav{
+  display:flex;gap:10px;margin-top:16px;
+}
+.flash-nav button{
+  flex:1;padding:14px;border:none;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:1rem;font-weight:600;
+  cursor:pointer;transition:all .15s;
+}
+.flash-nav button:active{transform:scale(.95)}
+.btn-prev{background:var(--card2);color:var(--text)}
+.btn-next{background:linear-gradient(135deg,var(--sky),var(--mint));color:#fff}
+.btn-star{
+  background:var(--card2);color:var(--sun);font-size:1.3rem;
+  flex:0 0 56px;
+}
+.btn-star.earned{background:var(--sun);color:var(--bg)}
+
+/* ── List view ── */
+.state-list-item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:8px;
+  cursor:pointer;transition:transform .1s;
+}
+.state-list-item:active{transform:scale(.97)}
+.sli-emoji{font-size:1.6rem;flex-shrink:0}
+.sli-info{flex:1}
+.sli-name{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem}
+.sli-cap{color:var(--text-dim);font-size:.85rem}
+.sli-clue{color:var(--text-dim);font-size:.78rem;opacity:.7}
+.sli-star{font-size:1.2rem;flex-shrink:0;opacity:.3}
+.sli-star.earned{opacity:1}
+
+/* ── Quiz ── */
+.quiz-progress{
+  display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap;
+}
+.quiz-dot{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--card2);display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:700;color:var(--text-dim);
+  transition:all .3s;
+}
+.quiz-dot.correct{background:var(--mint);color:#fff}
+.quiz-dot.wrong{background:var(--coral);color:#fff}
+.quiz-dot.current{box-shadow:0 0 0 3px var(--sun)}
+
+.quiz-card{
+  background:var(--card);border-radius:var(--radius);padding:28px 20px;
+  text-align:center;margin-bottom:14px;
+}
+.quiz-emoji{font-size:2.6rem;margin-bottom:8px}
+.quiz-q{
+  font-family:'Fredoka',sans-serif;font-size:1.15rem;font-weight:600;
+  margin-bottom:6px;
+}
+.quiz-clue{color:var(--text-dim);font-size:.88rem}
+
+.quiz-options{display:flex;flex-direction:column;gap:10px}
+.quiz-opt{
+  padding:16px 20px;border:3px solid var(--card2);border-radius:var(--radius-sm);
+  background:var(--card);font-family:'Fredoka',sans-serif;font-size:1.05rem;
+  font-weight:600;color:var(--text);cursor:pointer;
+  transition:all .2s;text-align:left;
+}
+.quiz-opt:active{transform:scale(.97)}
+.quiz-opt.correct{border-color:var(--mint);background:rgba(83,216,168,.15);color:var(--mint)}
+.quiz-opt.wrong{border-color:var(--coral);background:rgba(233,69,96,.15);color:var(--coral)}
+.quiz-opt.disabled{pointer-events:none;opacity:.5}
+
+.quiz-feedback{
+  text-align:center;margin-top:14px;padding:16px;
+  border-radius:var(--radius-sm);font-family:'Fredoka',sans-serif;
+  font-size:1.1rem;font-weight:600;
+}
+.quiz-feedback.yay{background:rgba(83,216,168,.15);color:var(--mint)}
+.quiz-feedback.nay{background:rgba(233,69,96,.15);color:var(--coral)}
+
+.quiz-next{
+  margin-top:14px;width:100%;padding:16px;border:none;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;
+  background:linear-gradient(135deg,var(--lavender),var(--sky));
+  color:#fff;cursor:pointer;
+}
+
+/* ── Results ── */
+.results{text-align:center;padding:30px 16px}
+.results .big-emoji{font-size:4rem;margin-bottom:12px}
+.results h2{
+  font-family:'Fredoka',sans-serif;font-size:1.6rem;
+  margin-bottom:8px;
+}
+.results .score{
+  font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;
+  color:var(--mint);margin-bottom:6px;
+}
+.results .level{color:var(--sun);font-size:1.1rem;margin-bottom:20px}
+.results button{
+  padding:16px 40px;border:none;border-radius:var(--radius-sm);
+  font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:700;
+  background:linear-gradient(135deg,var(--coral),var(--lavender));
+  color:#fff;cursor:pointer;
+}
+
+/* ── Match game ── */
+.match-instr{
+  text-align:center;color:var(--text-dim);font-size:.9rem;margin-bottom:14px;
+}
+.match-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+.match-btn{
+  padding:14px 10px;border:3px solid var(--card2);border-radius:var(--radius-sm);
+  background:var(--card);text-align:center;cursor:pointer;
+  font-family:'Fredoka',sans-serif;font-size:.92rem;font-weight:600;
+  color:var(--text);transition:all .2s;
+}
+.match-btn:active{transform:scale(.95)}
+.match-btn.selected{border-color:var(--sky);background:rgba(72,178,232,.15);color:var(--sky)}
+.match-btn.matched{border-color:var(--mint);background:rgba(83,216,168,.15);color:var(--mint);pointer-events:none}
+.match-btn.wrong-flash{border-color:var(--coral);background:rgba(233,69,96,.15)}
+.match-score{
+  text-align:center;margin-top:16px;font-family:'Fredoka',sans-serif;
+  font-size:1rem;color:var(--text-dim);
+}
+
+/* ── Confetti ── */
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg);opacity:1}
+  100%{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+.confetti-piece{
+  position:fixed;top:0;width:10px;height:10px;border-radius:2px;
+  animation:fall 2.5s ease-in forwards;pointer-events:none;z-index:999;
+}
+
+/* scrollbar */
+.main::-webkit-scrollbar{width:4px}
+.main::-webkit-scrollbar-thumb{background:var(--card2);border-radius:4px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>🧭 Map Quest!</h1>
+  <div class="star-count" id="starCount">⭐ 0 / 21</div>
+</div>
+
+<div class="nav">
+  <button class="active" onclick="showTab('home')">🏠 Home</button>
+  <button onclick="showTab('cards')">🃏 Cards</button>
+  <button onclick="showTab('list')">📋 List</button>
+  <button onclick="showTab('quiz')">🧠 Quiz</button>
+  <button onclick="showTab('match')">🎯 Match</button>
+</div>
+
+<div class="main" id="mainArea"></div>
+
+<script>
+// ── DATA ──
+const states = [
+  {emoji:"🌲",name:"Washington",capital:"Olympia",clue:"Top-left corner on the Pacific Ocean"},
+  {emoji:"🌧️",name:"Oregon",capital:"Salem",clue:"Right under Washington on the coast"},
+  {emoji:"🌞",name:"California",capital:"Sacramento",clue:"The long coast state under Oregon"},
+  {emoji:"🎰",name:"Nevada",capital:"Carson City",clue:"Next to California — think desert and Las Vegas"},
+  {emoji:"🥔",name:"Idaho",capital:"Boise",clue:"The tall state with the skinny top above Utah"},
+  {emoji:"🏔️",name:"Montana",capital:"Helena",clue:"A huge state on top of Wyoming"},
+  {emoji:"🌵",name:"Arizona",capital:"Phoenix",clue:"On the Mexico border, west of New Mexico"},
+  {emoji:"🐝",name:"Utah",capital:"Salt Lake City",clue:"The boxy state above Arizona"},
+  {emoji:"🤠",name:"Wyoming",capital:"Cheyenne",clue:"A rectangle under Montana"},
+  {emoji:"🎈",name:"New Mexico",capital:"Santa Fe",clue:"East of Arizona and south of Colorado"},
+  {emoji:"⛰️",name:"Colorado",capital:"Denver",clue:"A rectangle east of Utah"},
+  {emoji:"⭐",name:"Texas",capital:"Austin",clue:"The giant state with the pointy bottom"},
+  {emoji:"🌾",name:"North Dakota",capital:"Bismarck",clue:"The top state above South Dakota"},
+  {emoji:"🗿",name:"South Dakota",capital:"Pierre",clue:"Right under North Dakota"},
+  {emoji:"🌽",name:"Nebraska",capital:"Lincoln",clue:"The long state under South Dakota"},
+  {emoji:"🌀",name:"Oklahoma",capital:"Oklahoma City",clue:"Under Kansas, with a little panhandle"},
+  {emoji:"🌻",name:"Kansas",capital:"Topeka",clue:"A rectangle above Oklahoma"},
+  {emoji:"🛶",name:"Minnesota",capital:"Saint Paul",clue:"The state with lots of lakes and a northeast bump"},
+  {emoji:"🚜",name:"Iowa",capital:"Des Moines",clue:"East of Nebraska and above Missouri"},
+  {emoji:"🚪",name:"Missouri",capital:"Jefferson City",clue:"Under Iowa and west of Illinois"},
+  {emoji:"🌺",name:"Hawaii",capital:"Honolulu",clue:"A chain of islands far out in the Pacific"}
+];
+
+let stars = {};
+try { stars = JSON.parse(localStorage.getItem('mapquest_stars')||'{}'); } catch(e){}
+let currentCard = 0;
+let cardRevealed = false;
+let currentTab = 'home';
+
+// Quiz state
+let quizOrder=[], quizIdx=0, quizAnswers=[], quizAnswered=false;
+// Match state
+let matchPairs=[], matchSelected=null, matchedCount=0;
+
+function saveStars(){ try{localStorage.setItem('mapquest_stars',JSON.stringify(stars))}catch(e){} }
+function countStars(){ return Object.keys(stars).length; }
+function updateStarDisplay(){ document.getElementById('starCount').textContent = `⭐ ${countStars()} / 21`; }
+
+function showTab(tab){
+  currentTab = tab;
+  document.querySelectorAll('.nav button').forEach((b,i)=>{
+    const tabs=['home','cards','list','quiz','match'];
+    b.classList.toggle('active', tabs[i]===tab);
+  });
+  const m = document.getElementById('mainArea');
+  m.scrollTop=0;
+  if(tab==='home') renderHome();
+  else if(tab==='cards') renderCards();
+  else if(tab==='list') renderList();
+  else if(tab==='quiz') startQuiz();
+  else if(tab==='match') startMatch();
+}
+
+// ── HOME ──
+function renderHome(){
+  document.getElementById('mainArea').innerHTML = `
+    <div class="home-hero">
+      <div class="emoji-row">🧭 🌵 🌊 🌺 ⭐</div>
+      <h2>Map Quest!</h2>
+      <p>Learn 20 Western States + Hawaii<br>their capitals and where they are!</p>
+    </div>
+    <div class="how-to">
+      <h3>🎒 How to use this guide</h3>
+      <div class="step-row"><div class="step-num s1">1</div><div class="step-text"><b>👀 Look</b> — Read the state name and map clue</div></div>
+      <div class="step-row"><div class="step-num s2">2</div><div class="step-text"><b>🗣️ Say</b> — Say the capital out loud two times</div></div>
+      <div class="step-row"><div class="step-num s3">3</div><div class="step-text"><b>👉 Point</b> — Point to the state on a map or globe</div></div>
+      <div class="level-box">
+        <h4>🏆 Victory Levels</h4>
+        <div class="level-row">⭐ 5 states = Trail Starter</div>
+        <div class="level-row">⭐ 10 states = Map Detective</div>
+        <div class="level-row">⭐ 15 states = Capital Champ</div>
+        <div class="level-row">⭐ 21 states = Map Master!</div>
+      </div>
+    </div>`;
+}
+
+// ── FLASHCARDS ──
+function renderCards(){
+  const s = states[currentCard];
+  const isStarred = stars[s.name];
+  document.getElementById('mainArea').innerHTML = `
+    <div class="flash-header">
+      <div class="count">Card ${currentCard+1} of ${states.length}</div>
+    </div>
+    <div class="flashcard" onclick="toggleReveal()">
+      <div class="flash-top">
+        <div class="flash-emoji">${s.emoji}</div>
+        <div class="flash-state">${s.name}</div>
+        <div class="flash-clue">📍 ${s.clue}</div>
+      </div>
+      <div class="flash-bottom ${cardRevealed?'':'hidden'}">
+        <div class="label">Capital</div>
+        <div class="capital">${s.capital}</div>
+      </div>
+    </div>
+    <div class="flash-tap-hint">${cardRevealed?'':'👆 Tap card to reveal capital'}</div>
+    <div class="flash-nav">
+      <button class="btn-prev" onclick="prevCard()">◀ Back</button>
+      <button class="btn-star ${isStarred?'earned':''}" onclick="toggleStar('${s.name}')">${isStarred?'⭐':'☆'}</button>
+      <button class="btn-next" onclick="nextCard()">Next ▶</button>
+    </div>`;
+}
+function toggleReveal(){ cardRevealed=!cardRevealed; renderCards(); }
+function nextCard(){ currentCard=(currentCard+1)%states.length; cardRevealed=false; renderCards(); }
+function prevCard(){ currentCard=(currentCard-1+states.length)%states.length; cardRevealed=false; renderCards(); }
+function toggleStar(name){
+  if(stars[name]) delete stars[name]; else stars[name]=true;
+  saveStars(); updateStarDisplay(); renderCards();
+}
+
+// ── LIST ──
+function renderList(){
+  let html = states.map((s,i)=>`
+    <div class="state-list-item" onclick="currentCard=${i};cardRevealed=false;showTab('cards')">
+      <div class="sli-emoji">${s.emoji}</div>
+      <div class="sli-info">
+        <div class="sli-name">${s.name}</div>
+        <div class="sli-cap">Capital: ${s.capital}</div>
+        <div class="sli-clue">📍 ${s.clue}</div>
+      </div>
+      <div class="sli-star ${stars[s.name]?'earned':''}">${stars[s.name]?'⭐':'☆'}</div>
+    </div>`).join('');
+  document.getElementById('mainArea').innerHTML = html;
+}
+
+// ── QUIZ ──
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function startQuiz(){
+  quizOrder=shuffle([...Array(states.length).keys()]);
+  quizIdx=0; quizAnswers=[]; quizAnswered=false;
+  renderQuiz();
+}
+function renderQuiz(){
+  if(quizIdx>=states.length){ renderResults(); return; }
+  const s = states[quizOrder[quizIdx]];
+  // Build 4 options
+  let opts = [s.capital];
+  let pool = states.filter(x=>x.capital!==s.capital).map(x=>x.capital);
+  shuffle(pool);
+  opts.push(...pool.slice(0,3));
+  shuffle(opts);
+
+  let dots = '';
+  for(let i=0;i<states.length;i++){
+    let cls = 'quiz-dot';
+    if(i<quizAnswers.length) cls += quizAnswers[i]?' correct':' wrong';
+    if(i===quizIdx) cls += ' current';
+    dots += `<div class="${cls}">${i+1}</div>`;
+  }
+
+  document.getElementById('mainArea').innerHTML = `
+    <div class="quiz-progress">${dots}</div>
+    <div class="quiz-card">
+      <div class="quiz-emoji">${s.emoji}</div>
+      <div class="quiz-q">What is the capital of ${s.name}?</div>
+      <div class="quiz-clue">📍 ${s.clue}</div>
+    </div>
+    <div class="quiz-options" id="quizOpts">
+      ${opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},'${o.replace(/'/g,"\\'")}','${s.capital.replace(/'/g,"\\'")}')">${o}</div>`).join('')}
+    </div>
+    <div id="quizFeedback"></div>`;
+  quizAnswered=false;
+}
+function answerQuiz(idx,chosen,correct){
+  if(quizAnswered) return;
+  quizAnswered=true;
+  const isRight = chosen===correct;
+  quizAnswers.push(isRight);
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns.forEach(b=>{
+    if(b.textContent===correct) b.classList.add('correct');
+    else if(b.textContent===chosen && !isRight) b.classList.add('wrong');
+    else b.classList.add('disabled');
+  });
+  const fb = document.getElementById('quizFeedback');
+  if(isRight){
+    fb.innerHTML = `<div class="quiz-feedback yay">🎉 Correct!</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
+    if(!stars[states[quizOrder[quizIdx]].name]){
+      stars[states[quizOrder[quizIdx]].name]=true; saveStars(); updateStarDisplay();
+    }
+  } else {
+    fb.innerHTML = `<div class="quiz-feedback nay">The answer is ${correct}</div><button class="quiz-next" onclick="quizIdx++;renderQuiz()">Next →</button>`;
+  }
+}
+function renderResults(){
+  const score = quizAnswers.filter(Boolean).length;
+  let level='Keep Practicing!', emoji='🎒';
+  if(score>=21){level='Map Master! 🗺️';emoji='🏆'}
+  else if(score>=15){level='Capital Champ!';emoji='🥇'}
+  else if(score>=10){level='Map Detective!';emoji='🔍'}
+  else if(score>=5){level='Trail Starter!';emoji='🥾'}
+  document.getElementById('mainArea').innerHTML = `
+    <div class="results">
+      <div class="big-emoji">${emoji}</div>
+      <h2>Quiz Complete!</h2>
+      <div class="score">${score} / ${states.length}</div>
+      <div class="level">${level}</div>
+      <button onclick="startQuiz()">Try Again 🔄</button>
+    </div>`;
+  if(score>=15) launchConfetti();
+}
+
+// ── MATCH GAME ──
+function startMatch(){
+  // Pick 6 random states for matching
+  let pool = shuffle([...Array(states.length).keys()]).slice(0,6);
+  matchPairs = pool.map(i=>({state:states[i].name, capital:states[i].capital}));
+  matchSelected=null; matchedCount=0;
+  renderMatch();
+}
+function renderMatch(){
+  let leftItems = shuffle(matchPairs.map((p,i)=>({text:p.state,idx:i,side:'state'})));
+  let rightItems = shuffle(matchPairs.map((p,i)=>({text:p.capital,idx:i,side:'capital'})));
+  // Store for click handling
+  window._matchLeft = leftItems;
+  window._matchRight = rightItems;
+  window._matched = new Set();
+  window._sel = null;
+
+  let grid = '<div style="display:flex;gap:8px">';
+  grid += '<div style="flex:1;display:flex;flex-direction:column;gap:8px">';
+  leftItems.forEach((item,vi)=>{
+    grid += `<div class="match-btn" data-side="state" data-idx="${item.idx}" data-vi="${vi}" onclick="matchClick(this,'state',${item.idx})">${item.text}</div>`;
+  });
+  grid += '</div><div style="flex:1;display:flex;flex-direction:column;gap:8px">';
+  rightItems.forEach((item,vi)=>{
+    grid += `<div class="match-btn" data-side="capital" data-idx="${item.idx}" data-vi="${vi}" onclick="matchClick(this,'capital',${item.idx})">${item.text}</div>`;
+  });
+  grid += '</div></div>';
+
+  document.getElementById('mainArea').innerHTML = `
+    <div class="match-instr">Tap a state, then tap its capital!</div>
+    ${grid}
+    <div class="match-score" id="matchScore">Matched: 0 / 6</div>`;
+}
+function matchClick(el, side, idx){
+  if(window._matched.has(idx) && el.classList.contains('matched')) return;
+  if(window._sel===null){
+    document.querySelectorAll('.match-btn').forEach(b=>b.classList.remove('selected'));
+    el.classList.add('selected');
+    window._sel = {side, idx, el};
+  } else {
+    if(window._sel.side === side){ // same column, switch selection
+      window._sel.el.classList.remove('selected');
+      el.classList.add('selected');
+      window._sel = {side, idx, el};
+      return;
+    }
+    // Different columns — check match
+    if(window._sel.idx === idx){
+      // Correct!
+      window._sel.el.classList.remove('selected');
+      window._sel.el.classList.add('matched');
+      el.classList.add('matched');
+      window._matched.add(idx);
+      window._sel = null;
+      document.getElementById('matchScore').textContent = `Matched: ${window._matched.size} / 6`;
+      if(window._matched.size===6){
+        document.getElementById('matchScore').innerHTML = `<span style="color:var(--mint);font-size:1.2rem">🎉 All matched!</span><br><button class="quiz-next" style="margin-top:12px" onclick="startMatch()">Play Again 🔄</button>`;
+        launchConfetti();
+      }
+    } else {
+      // Wrong
+      el.classList.add('wrong-flash');
+      window._sel.el.classList.add('wrong-flash');
+      const a=el, b=window._sel.el;
+      setTimeout(()=>{a.classList.remove('wrong-flash');b.classList.remove('wrong-flash','selected');},600);
+      window._sel=null;
+    }
+  }
+}
+
+// ── Confetti ──
+function launchConfetti(){
+  const colors = ['#f6c90e','#e94560','#53d8a8','#48b2e8','#b68eff','#ff9a76'];
+  for(let i=0;i<50;i++){
+    const c=document.createElement('div');
+    c.className='confetti-piece';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDelay=(Math.random()*1.5)+'s';
+    c.style.width=(6+Math.random()*8)+'px';
+    c.style.height=(6+Math.random()*8)+'px';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
+// ── Init ──
+updateStarDisplay();
+renderHome();
+</script>
+</body>
+</html>
